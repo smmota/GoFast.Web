@@ -16,5 +16,13 @@ namespace GoFast.UI.DTO
         public DateTime AnoFabricacao { get; set; }
 
         public DocumentoCarroDTO DocumentoCarro { get; set; }
+
+        public CarroDTO(string placa, string modelo, DateTime anoFabricacao, DocumentoCarroDTO documentoCarro)
+        {
+            Placa = placa;
+            Modelo = modelo;
+            AnoFabricacao = anoFabricacao;
+            DocumentoCarro = documentoCarro;
+        }
     }
 }

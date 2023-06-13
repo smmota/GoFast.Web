@@ -16,5 +16,13 @@ namespace GoFast.UI.DTO
 
         [Required]
         public Guid IdBlob { get; set; }
+
+        public DocumentoDTO(TipoDocumentoEnum tipoDocumento, string numero, DateTime expedicao, Guid idBlob)
+        {
+            TipoDocumento = tipoDocumento;
+            Numero = numero;
+            Expedicao = expedicao;
+            IdBlob = idBlob;
+        }
     }
 }

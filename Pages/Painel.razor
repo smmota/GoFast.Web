@@ -35,7 +35,7 @@ else
                 var enderecoCompleto = motorista.Endereco.Rua + " " + motorista.Endereco.Numero + ", " + motorista.Endereco.Bairro + " - " + motorista.Endereco.Cidade + " - " + motorista.Endereco.Estado + " - " + motorista.Endereco.CEP;
                 var carroFormatado = motorista.Carro.Modelo + " - " + motorista.Carro.Placa + " - " + DateTime.Parse(motorista.Carro.AnoFabricacao.ToString()).ToString("MM/yyyy");
                 var documentoCompleto = motorista.Carro.DocumentoCarro.Numero + " - Expedição: " + DateTime.Parse(motorista.Carro.DocumentoCarro.Expedicao.ToString()).ToString("MM/yyyy") + " - Renovação: " + DateTime.Parse(motorista.Carro.DocumentoCarro.Renovacao.ToString()).ToString("MM/yyyy");
-                var dataNascimentoFormatada = DateTime.Parse(motorista.Nascimento).ToString("dd/MM/yyyy");
+                var dataNascimentoFormatada = Convert.ToDateTime(motorista.Nascimento).ToString("dd/MM/yyyy");
 
                 <div class="col-xl-3 col-sm-6">
                     <div class="card">

@@ -12,7 +12,7 @@ namespace GoFast.UI.DTO
         public string Email { get; set; }
 
         [Required]
-        public string Nascimento { get; set; }
+        public DateTime Nascimento { get; set; }
 
         [Required]
         public EnderecoDTO Endereco { get; set; }
@@ -24,7 +24,7 @@ namespace GoFast.UI.DTO
         {
         }
 
-        public MotoristaDTO(string nome, string email, string nascimento, EnderecoDTO endereco, CarroDTO carro)
+        public MotoristaDTO(string nome, string email, DateTime nascimento, EnderecoDTO endereco, CarroDTO carro)
         {
             Nome = nome;
             Email = email;

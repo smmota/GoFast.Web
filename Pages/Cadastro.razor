@@ -3,8 +3,38 @@
 @using GoFast.UI.Services;
 @inject IMotoristaService service
 
-<h3>Cadastro</h3>
+@*<h3>Bind Data</h3>
+<div>
+    <b>Id:</b>@product.Id
+    <br />
+    <b>Name:</b>@product.Name
+    <br />
+    <b>Price:</b>@product
+    <br />
+    <b>IsActive:</b>@product.IsActive
+    <br />
+    <b>Price</b>
+    <input type="text" @bind-value="@product.Name" />
+</div>
 
+@code {
+    DemoProducts product = new()
+        {
+            Id = 101,
+            Name = "Computer Table",
+            IsActive = true
+
+        };
+
+    public class DemoProducts
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public bool IsActive { get; set; }
+    }
+*@
+
+<h3>Cadastro</h3>
 <div class="container-xl px-4 mt-4">
     <div class="row">
         <div class="col-xl-4">
@@ -30,19 +60,19 @@
                         <!-- Form Group (username)-->
                         <div class="mb-3">
                             <label class="small mb-1" for="inputUsername">Nome Completo</label>
-                            <input id="nameMotorista" class="form-control" type="text" placeholder="Digite nome completo" value="Lucas Marques">
+                            <input id="nameMotorista" class="form-control" type="text" placeholder="Digite nome completo" @bind-value="@motoristaDTOInput.Nome" />
                         </div>
                         <!-- Form Row-->
                         <div class="row gx-3 mb-3">
                             <!-- Form Group (first name)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputFirstName">Email</label>
-                                <input class="form-control" id="inputFirstName" type="email" placeholder="Digite seu nome" value="nome@exemplo.com">
+                                <input class="form-control" id="inputFirstName" type="email" placeholder="Digite seu nome" @bind-value="@motoristaDTOInput.Email" />
                             </div>
                             <!-- Form Group (last name)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputLastName">Data Nascimento</label>
-                                <input class="form-control" id="inputLastName" type="date" placeholder="Insira seu nascimnto" value="06/10/1988">
+                                <input class="form-control" id="inputLastName" type="date" placeholder="Insira seu nascimnto" @bind-value="@motoristaDTOInput.Nascimento" />
                             </div>
                         </div>
 
@@ -65,19 +95,19 @@
                             <!-- Form Group (first name)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputFirstName">Número</label>
-                                <input class="form-control" id="inputFirstName" type="text" placeholder="XXX-XXX-XXX-XX" value="000-000-000-00">
+                                <input class="form-control" id="inputFirstName" type="text" placeholder="XXX-XXX-XXX-XX" @bind-value="@motoristaDTOInput.Carro.DocumentoCarro.Numero" />
                             </div>
                         </div>
                         <div class="row gx-3 mb-3">
                             <!-- Form Group (first name)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputFirstName">Data Expedição</label>
-                                <input class="form-control" id="inputFirstName" type="date" placeholder="Insira a expedicao" value="06/10/2008">
+                                <input class="form-control" id="inputFirstName" type="date" placeholder="Insira a expedicao" @bind-value="@motoristaDTOInput.Carro.DocumentoCarro.Expedicao" />
                             </div>
                             <!-- Form Group (last name)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputFirstName">Data Renovação</label>
-                                <input class="form-control" id="inputFirstName" type="date" placeholder="Insira a renovação" value="06/10/2018">
+                                <input class="form-control" id="inputFirstName" type="date" placeholder="Insira a renovação" @bind-value="@motoristaDTOInput.Carro.DocumentoCarro.Renovacao" />
                             </div>
                         </div>
 
@@ -88,42 +118,42 @@
                             <!-- Form Group (organization name)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputOrgName">Rua</label>
-                                <input class="form-control" id="inputOrgName" type="text" placeholder="Digite sua rua" value="Eudelio Ramos">
+                                <input class="form-control" id="inputOrgName" type="text" placeholder="Digite sua rua" @bind-value="@motoristaDTOInput.Endereco.Rua" />
                             </div>
                             <!-- Form Group (location)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputLocation">Numero</label>
-                                <input class="form-control" id="inputLocation" type="number" placeholder="Digite o número" value="230">
+                                <input class="form-control" id="inputLocation" type="number" placeholder="Digite o número" @bind-value="@motoristaDTOInput.Endereco.Numero" />
                             </div>
                         </div>
                         <div class="row gx-3 mb-3">
                             <!-- Form Group (organization name)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputOrgName">CEP</label>
-                                <input class="form-control" id="inputOrgName" type="text" placeholder="Digite seu CEP" value="03728-120">
+                                <input class="form-control" id="inputOrgName" type="text" placeholder="Digite seu CEP" @bind-value="@motoristaDTOInput.Endereco.CEP" />
                             </div>
                             <!-- Form Group (location)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputLocation">Bairro</label>
-                                <input class="form-control" id="inputLocation" type="text" placeholder="Digite o bairro" value="Jardins">
+                                <input class="form-control" id="inputLocation" type="text" placeholder="Digite o bairro" @bind-value="@motoristaDTOInput.Endereco.Bairro" />
                             </div>
                         </div>
                         <div class="row gx-3 mb-3">
                             <!-- Form Group (organization name)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputOrgName">Cidade</label>
-                                <input class="form-control" id="inputOrgName" type="text" placeholder="Digite sua Cidade" value="São Paulo">
+                                <input class="form-control" id="inputOrgName" type="text" placeholder="Digite sua Cidade" @bind-value="@motoristaDTOInput.Endereco.Cidade" />
                             </div>
                             <!-- Form Group (location)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputLocation">Estado</label>
-                                <input class="form-control" id="inputLocation" type="text" placeholder="Digite o Estado" value="São Paulo">
+                                <input class="form-control" id="inputLocation" type="text" placeholder="Digite o Estado" @bind-value="@motoristaDTOInput.Endereco.Estado" />
                             </div>
                         </div>
                         <!-- Form Group (email address)-->
                         <div class="mb-3">
                             <label class="small mb-1" for="inputEmailAddress">Complemento</label>
-                            <input class="form-control" id="inputEmailAddress" type="text" placeholder="Digite o Complemento" value="Proximo a escola">
+                            <input class="form-control" id="inputEmailAddress" type="text" placeholder="Digite o Complemento" @bind-value="@motoristaDTOInput.Endereco.Complemento" />
                         </div>
 
                         <div class="card-header">Informaçoes do Carro</div>
@@ -132,21 +162,21 @@
                             <!-- Form Group (organization name)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputOrgName">Placa</label>
-                                <input class="form-control" id="inputOrgName" type="text" placeholder="Digite sua placa" value="LLL1G99">
+                                <input class="form-control" id="inputOrgName" type="text" placeholder="Digite sua placa" @bind-value="@motoristaDTOInput.Carro.Placa" />
                             </div>
                             <!-- Form Group (location)-->
                             <div class="col-md-6">
-                                <label class="small mb-1" for="inputLocation">Model</label>
-                                <input class="form-control" id="inputLocation" type="text" placeholder="Digite o modelo" value="Fox">
+                                <label class="small mb-1" for="inputLocation">Modelo</label>
+                                <input class="form-control" id="inputLocation" type="text" placeholder="Digite o modelo" @bind-value="@motoristaDTOInput.Carro.Modelo" />
                             </div>
                             <!-- Form Group (location)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputLocation">Ano De Fabricação</label>
-                                <input class="form-control" id="inputLocation" type="date" placeholder="Insira o ano de fabricação" value="06/10/2018">
+                                <input class="form-control" id="inputLocation" type="date" placeholder="Insira o ano de fabricação" @bind-value="@motoristaDTOInput.Carro.AnoFabricacao" />
                             </div>
                         </div>
                         <!-- Save changes button-->
-                        <button class="btn btn-primary" type="button">Cadastrar</button>
+                        <button class="btn btn-primary" type="button" @onclick="CadastrarMotorista">Cadastrar</button>
                     </form>
                 </div>
             </div>
@@ -156,15 +186,15 @@
 
 @code {
 
-    [Parameter]
-    public MotoristaDTO _motoristaDTOInput { get; set; }
+    public MotoristaDTO motoristaDTOInput = new MotoristaDTO("", "", DateTime.Now, new EnderecoDTO("", 0, "", "", "", "", ""), new CarroDTO("", "", DateTime.Now, new DocumentoCarroDTO(DateTime.Now)));
 
-    private void InputDocumento()
+    async void CadastrarMotorista()
     {
-        //var fileDialog = new OpenFileDialog();
-        //if (fileDialog.ShowDialog() == true)
-        //{
-        //    FileTextBox.Text = fileDialog.FileName;
-        //}
+        await service.Create(motoristaDTOInput);
+    }
+
+    void InputDocumento()
+    {
+
     }
 }
