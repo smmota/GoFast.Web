@@ -20,17 +20,21 @@ namespace GoFast.UI.DTO
         [Required]
         public CarroDTO Carro { get; set; }
 
+        [Required]
+        public BlobDTO Blob { get; set; }
+
         public MotoristaDTO()
         {
         }
 
-        public MotoristaDTO(string nome, string email, DateTime nascimento, EnderecoDTO endereco, CarroDTO carro)
+        public MotoristaDTO(string nome, string email, DateTime nascimento, EnderecoDTO endereco, CarroDTO carro, BlobDTO blobDTO)
         {
             Nome = nome;
             Email = email;
             Nascimento = nascimento;
             Endereco = endereco;
             Carro = carro;
+            Blob = blobDTO;
         }
     }
 }

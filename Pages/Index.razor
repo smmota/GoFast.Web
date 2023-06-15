@@ -1,5 +1,6 @@
 ﻿@page "/Index"
 @using GoFast.UI.DTO;
+@using GoFast.UI.DTO.ViewModel;
 @using GoFast.UI.Services;
 @using System.Globalization;
 
@@ -89,7 +90,7 @@ else
 }
 
 @code {
-    private List<MotoristaDTO> motoristas;
+    private List<MotoristaViewModel> motoristas;
 
     protected override async Task OnInitializedAsync()
     {

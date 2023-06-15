@@ -1,38 +1,13 @@
 ﻿@page "/Cadastro"
 @using GoFast.UI.DTO;
 @using GoFast.UI.Services;
-@inject IMotoristaService service
-
-@*<h3>Bind Data</h3>
-<div>
-    <b>Id:</b>@product.Id
-    <br />
-    <b>Name:</b>@product.Name
-    <br />
-    <b>Price:</b>@product
-    <br />
-    <b>IsActive:</b>@product.IsActive
-    <br />
-    <b>Price</b>
-    <input type="text" @bind-value="@product.Name" />
-</div>
-
-@code {
-    DemoProducts product = new()
-        {
-            Id = 101,
-            Name = "Computer Table",
-            IsActive = true
-
-        };
-
-    public class DemoProducts
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public bool IsActive { get; set; }
-    }
-*@
+@using BlazorInputFile
+@inject IMotoristaService serviceMotorista
+@inject IBlobService serviceBlob
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
+@inject IFileConverter fileUpload
+@inject IWebHostEnvironment Env
 
 <h3>Cadastro</h3>
 <div class="container-xl px-4 mt-4">
@@ -43,11 +18,11 @@
                 <div class="card-header">Documento</div>
                 <div class="card-body text-center">
                     <!-- Profile picture image-->
-                    <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                    <img class="img-account-profile mb-5" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
                     <!-- Profile picture help block-->
                     <div class="small font-italic text-muted mb-4">JPG ou PNG não pode ultrapassar 5 MB</div>
                     <!-- Profile picture upload button-->
-                    <button class="btn btn-primary" @onclick="InputDocumento" type="button">Escolher Documento</button>
+                    <BlazorInputFile.InputFile OnChange="HandleFileSelected" class="btn btn-primary" accept="image/png, image/jpg" />
                 </div>
             </div>
         </div>
@@ -185,16 +160,40 @@
 </div>
 
 @code {
+    IFileListEntry arquivo;
+    public string arquivoBase64;
 
-    public MotoristaDTO motoristaDTOInput = new MotoristaDTO("", "", DateTime.Now, new EnderecoDTO("", 0, "", "", "", "", ""), new CarroDTO("", "", DateTime.Now, new DocumentoCarroDTO(DateTime.Now)));
+    public MotoristaDTO motoristaDTOInput = new MotoristaDTO("", "", DateTime.Now, new EnderecoDTO("", 0, "", "", "", "", ""), new CarroDTO("", "", DateTime.Now, new DocumentoCarroDTO(DateTime.Now)), new BlobDTO());
 
     async void CadastrarMotorista()
     {
-        await service.Create(motoristaDTOInput);
+        if (arquivoBase64 == string.Empty || arquivoBase64 == null)
+        {
+
+        }
+        else
+        {
+
+            motoristaDTOInput.Blob.imagemBase64 = arquivoBase64;
+            var idMotorista = await serviceMotorista.Create(motoristaDTOInput);
+
+            NavigationManager.NavigateTo("Painel/" + idMotorista);
+
+        }
     }
 
-    void InputDocumento()
+    async Task HandleFileSelected(IFileListEntry[] files)
     {
-
+        try
+        {
+            arquivo = files.FirstOrDefault();
+            if (arquivo != null)
+            {
+                arquivoBase64 = await fileUpload.UploadAsync(arquivo);
+            }
+        }
+        catch (Exception ex)
+        {
+        }
     }
 }

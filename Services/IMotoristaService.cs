@@ -1,14 +1,15 @@
 ﻿using GoFast.UI.DTO;
+using GoFast.UI.DTO.ViewModel;
 
 namespace GoFast.UI.Services
 {
     public interface IMotoristaService
     {
-        Task<List<MotoristaDTO>> GetAll();
+        Task<List<MotoristaViewModel>> GetAll();
 
-        Task<MotoristaDTO> GetById(Guid id);
+        Task<MotoristaViewModel> GetById(string id);
 
-        Task Create(MotoristaDTO motoristaDTO);
+        Task<String> Create(MotoristaDTO motoristaDTO);
 
         Task DeleteById(Guid id);
 

@@ -6,8 +6,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 
-//builder.Services.AddHttpClient<MotoristaService>();
 builder.Services.AddHttpClient<IMotoristaService, MotoristaService>();
+builder.Services.AddHttpClient<IBlobService, BlobService>();
+builder.Services.AddScoped<IFileConverter, FileConverter>();
 
 var app = builder.Build();
 

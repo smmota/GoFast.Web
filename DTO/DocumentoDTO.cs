@@ -1,5 +1,6 @@
 ﻿using GoFast.UI.DTO.Enums;
 using System.ComponentModel.DataAnnotations;
+using System.Reflection.Metadata;
 
 namespace GoFast.UI.DTO
 {
@@ -14,15 +15,11 @@ namespace GoFast.UI.DTO
         [Required]
         public DateTime Expedicao { get; set; }
 
-        [Required]
-        public Guid IdBlob { get; set; }
-
-        public DocumentoDTO(TipoDocumentoEnum tipoDocumento, string numero, DateTime expedicao, Guid idBlob)
+        public DocumentoDTO(TipoDocumentoEnum tipoDocumento, string numero, DateTime expedicao)
         {
             TipoDocumento = tipoDocumento;
             Numero = numero;
             Expedicao = expedicao;
-            IdBlob = idBlob;
         }
     }
 }
