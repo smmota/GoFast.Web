@@ -1,6 +1,7 @@
-﻿@page "/Cadastro"
+﻿@page "/Editar/{idMotorista?}"
 
 @using GoFast.UI.DTO;
+@using GoFast.UI.DTO.ViewModel;
 @using GoFast.UI.Services;
 @using BlazorInputFile
 
@@ -11,7 +12,7 @@
 @inject IWebHostEnvironment Env
 @inject NavigationManager NavigationManager
 
-<h3>Cadastro</h3>
+<h3>Editar</h3>
 <div class="container-xl px-4 mt-4">
     <div class="row">
         <div class="col-xl-4">
@@ -20,7 +21,7 @@
                 <div class="card-header">Documento</div>
                 <div class="card-body text-center">
                     <!-- Profile picture image-->
-                   @* <img class="img-account-profile mb-5" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">*@
+                    <img class="img-account-profile mb-5" src="@motoristaDTOInput.Carro.DocumentoCarro.BlobStorage.Link" alt="">
                     <!-- Profile picture help block-->
                     <div class="small font-italic text-muted mb-4">JPG ou PNG não pode ultrapassar 5 MB</div>
                     <!-- Profile picture upload button-->
@@ -153,7 +154,7 @@
                             </div>
                         </div>
                         <!-- Save changes button-->
-                        <button class="btn btn-primary" type="button" @onclick="CadastrarMotorista">Cadastrar</button>
+                        <button class="btn btn-primary" type="button" @onclick="EditarMotorista">Salvar</button>
                     </form>
                 </div>
             </div>
@@ -166,9 +167,12 @@
 
     public string arquivoBase64;
 
-    public MotoristaDTO motoristaDTOInput = new MotoristaDTO("", "", DateTime.Now, new EnderecoDTO("", 0, "", "", "", "", ""), new CarroDTO("", "", DateTime.Now, new DocumentoCarroDTO(DateTime.Now)), new BlobDTO());
+    [Parameter]
+    public string IdMotorista { get; set; } = string.Empty;
 
-    async void CadastrarMotorista()
+    public MotoristaViewModel motoristaDTOInput = new MotoristaViewModel("", "", DateTime.Now, new EnderecoViewModel("", 0, "", "", "", "", ""), new CarroViewModel("", "", DateTime.Now, new DocumentoCarroViewModel(DateTime.Now)));
+
+    async void EditarMotorista()
     {
         if (arquivoBase64 == string.Empty || arquivoBase64 == null)
         {
@@ -176,11 +180,10 @@
         }
         else
         {
+            await serviceMotorista.Update(new MotoristaViewModel());
 
-            motoristaDTOInput.Blob.imagemBase64 = arquivoBase64;
-            var idMotorista = await serviceMotorista.Create(motoristaDTOInput);
+            NavigationManager.NavigateTo("Painel/" + IdMotorista);
 
-            NavigationManager.NavigateTo("Painel/" + idMotorista);
         }
     }
 
@@ -201,6 +204,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-
+        if (IdMotorista != string.Empty && IdMotorista != null)
+            motoristaDTOInput = await serviceMotorista.GetById(IdMotorista);
     }
 }

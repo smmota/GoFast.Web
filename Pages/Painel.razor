@@ -6,6 +6,8 @@
 @using System.Globalization;
 
 @inject IMotoristaService MotoristaService;
+@inject NavigationManager NavigationManager
+
 <PageTitle>Motoristas</PageTitle>
 
 <h3>painel</h3>
@@ -59,7 +61,7 @@ else
                                 <p class="text-muted mb-0 mt-2"><i class="mdi mdi-file-document align-middle pe-2 text-primary"></i>@documentoCompleto</p>
                             </div>
                             <div class="d-flex gap-2 pt-4">
-                                <button type="button" class="btn btn-primary btn-sm w-50" @onclick="teste"><i class="bx bx-edit-alt me-1"></i> Editar</button>
+                                <button type="button" class="btn btn-primary btn-sm w-50" @onclick="@(e => Editar(motorista.Id))"><i class="bx bx-edit-alt me-1"></i> Editar</button>
                             </div>
                         </div>
                     </div>
@@ -86,8 +88,8 @@ else
 
     }
 
-    protected void teste()
+    public async void Editar(Guid id)
     {
-
+        NavigationManager.NavigateTo("Editar/" + id);
     }
 }

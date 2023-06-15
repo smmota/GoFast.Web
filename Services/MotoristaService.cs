@@ -60,7 +60,7 @@ namespace GoFast.UI.Services
             response.EnsureSuccessStatusCode();
         }
 
-        public async Task Update(MotoristaDTO motoristaDTO)
+        public async Task Update(MotoristaViewModel motoristaDTO)
         {
             HttpContent body = new StringContent(JsonConvert.SerializeObject(motoristaDTO), Encoding.UTF8, "application/json");
             var response = await _httpClient.PutAsync(uriBase + "Motorista/Update", body);

@@ -17,5 +17,20 @@ namespace GoFast.UI.DTO.ViewModel
         public string Estado { get; set; }
 
         public string Complemento { get; set; }
+
+        public EnderecoViewModel()
+        {
+        }
+
+        public EnderecoViewModel(string rua, int numero, string cEP, string bairro, string cidade, string estado, string complemento)
+        {
+            Rua = rua;
+            Numero = numero;
+            CEP = cEP;
+            Bairro = bairro;
+            Cidade = cidade;
+            Estado = estado;
+            Complemento = complemento;
+        }
     }
 }

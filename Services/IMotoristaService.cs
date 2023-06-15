@@ -13,6 +13,6 @@ namespace GoFast.UI.Services
 
         Task DeleteById(Guid id);
 
-        Task Update(MotoristaDTO motoristaDTO);
+        Task Update(MotoristaViewModel motoristaDTO);
     }
 }
