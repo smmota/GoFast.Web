@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "xDCFmOiYuft4QmGKYWRSb6wPMd7hExeFnK2sVG9e8FA=",
+  "Hash": "v2lqOXdL4dwgrc2Qqzq73m+lpbQn6u6dfSR6pAjyMFg=",
   "Source": "GoFast.UI",
   "BasePath": "_content/GoFast.UI",
   "Mode": "Default",
@@ -10,7 +10,7 @@
     {
       "Name": "GoFast.UI\\wwwroot",
       "Source": "GoFast.UI",
-      "ContentRoot": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\wwwroot\\",
       "BasePath": "_content/GoFast.UI",
       "Pattern": "**"
     }
@@ -34,10 +34,10 @@
       "OriginalItemSpec": "C:\\Users\\marqu\\.nuget\\packages\\blazorinputfile\\0.2.0\\staticwebassets\\inputfile.js"
     },
     {
-      "Identity": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\obj\\Debug\\net7.0\\scopedcss\\bundle\\GoFast.UI.styles.css",
+      "Identity": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\obj\\Debug\\net7.0\\scopedcss\\bundle\\GoFast.UI.styles.css",
       "SourceId": "GoFast.UI",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
       "BasePath": "_content/GoFast.UI",
       "RelativePath": "GoFast.UI.styles.css",
       "AssetKind": "All",
@@ -48,13 +48,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\obj\\Debug\\net7.0\\scopedcss\\bundle\\GoFast.UI.styles.css"
+      "OriginalItemSpec": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\obj\\Debug\\net7.0\\scopedcss\\bundle\\GoFast.UI.styles.css"
     },
     {
-      "Identity": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\GoFast.UI.bundle.scp.css",
+      "Identity": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\GoFast.UI.bundle.scp.css",
       "SourceId": "GoFast.UI",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/GoFast.UI",
       "RelativePath": "GoFast.UI.bundle.scp.css",
       "AssetKind": "All",
@@ -65,13 +65,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\GoFast.UI.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\GoFast.UI.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "SourceId": "GoFast.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\wwwroot\\",
       "BasePath": "_content/GoFast.UI",
       "RelativePath": "css/bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -85,10 +85,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "GoFast.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\wwwroot\\",
       "BasePath": "_content/GoFast.UI",
       "RelativePath": "css/bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -102,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "Identity": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "SourceId": "GoFast.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\wwwroot\\",
       "BasePath": "_content/GoFast.UI",
       "RelativePath": "css/open-iconic/font/css/open-iconic-bootstrap.min.css",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "Identity": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
       "SourceId": "GoFast.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\wwwroot\\",
       "BasePath": "_content/GoFast.UI",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.eot",
       "AssetKind": "All",
@@ -136,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
     },
     {
-      "Identity": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "Identity": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
       "SourceId": "GoFast.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\wwwroot\\",
       "BasePath": "_content/GoFast.UI",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.otf",
       "AssetKind": "All",
@@ -153,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
     },
     {
-      "Identity": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "Identity": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
       "SourceId": "GoFast.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\wwwroot\\",
       "BasePath": "_content/GoFast.UI",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.svg",
       "AssetKind": "All",
@@ -170,10 +170,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
     },
     {
-      "Identity": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "Identity": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
       "SourceId": "GoFast.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\wwwroot\\",
       "BasePath": "_content/GoFast.UI",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.ttf",
       "AssetKind": "All",
@@ -187,10 +187,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
     },
     {
-      "Identity": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "Identity": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
       "SourceId": "GoFast.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\wwwroot\\",
       "BasePath": "_content/GoFast.UI",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.woff",
       "AssetKind": "All",
@@ -204,10 +204,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
     },
     {
-      "Identity": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "Identity": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "SourceId": "GoFast.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\wwwroot\\",
       "BasePath": "_content/GoFast.UI",
       "RelativePath": "css/open-iconic/FONT-LICENSE",
       "AssetKind": "All",
@@ -221,10 +221,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
     },
     {
-      "Identity": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "Identity": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
       "SourceId": "GoFast.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\wwwroot\\",
       "BasePath": "_content/GoFast.UI",
       "RelativePath": "css/open-iconic/ICON-LICENSE",
       "AssetKind": "All",
@@ -238,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\ICON-LICENSE"
     },
     {
-      "Identity": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\wwwroot\\css\\open-iconic\\README.md",
+      "Identity": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\wwwroot\\css\\open-iconic\\README.md",
       "SourceId": "GoFast.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\wwwroot\\",
       "BasePath": "_content/GoFast.UI",
       "RelativePath": "css/open-iconic/README.md",
       "AssetKind": "All",
@@ -255,10 +255,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\README.md"
     },
     {
-      "Identity": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\wwwroot\\css\\site.css",
       "SourceId": "GoFast.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\wwwroot\\",
       "BasePath": "_content/GoFast.UI",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -272,10 +272,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\wwwroot\\favicon.png",
+      "Identity": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\wwwroot\\favicon.png",
       "SourceId": "GoFast.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\wwwroot\\",
       "BasePath": "_content/GoFast.UI",
       "RelativePath": "favicon.png",
       "AssetKind": "All",
@@ -289,10 +289,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.png"
     },
     {
-      "Identity": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\wwwroot\\main.js",
+      "Identity": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\wwwroot\\main.js",
       "SourceId": "GoFast.UI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\wwwroot\\",
       "BasePath": "_content/GoFast.UI",
       "RelativePath": "main.js",
       "AssetKind": "All",

@@ -1435,11 +1435,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\GoFast.UI.csproj",
+      "projectUniqueName": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\GoFast.UI.csproj",
       "projectName": "GoFast.UI",
-      "projectPath": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\GoFast.UI.csproj",
+      "projectPath": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\GoFast.UI.csproj",
       "packagesPath": "C:\\Users\\marqu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\marqu\\source\\repos\\GoFast.UI\\obj\\",
+      "outputPath": "C:\\Users\\marqu\\source\\repos\\teste\\GoFast.Web\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\marqu\\AppData\\Roaming\\NuGet\\NuGet.Config",
