@@ -1,5 +1,6 @@
 ﻿@page "/Painel"
 @page "/Painel/{idMotorista?}"
+
 @using GoFast.UI.DTO;
 @using GoFast.UI.DTO.ViewModel;
 @using GoFast.UI.Services;
@@ -8,9 +9,9 @@
 @inject IMotoristaService MotoristaService;
 @inject NavigationManager NavigationManager
 
-<PageTitle>Motoristas</PageTitle>
+@*<PageTitle>Motoristas</PageTitle>*@
 
-<h3>painel</h3>
+<h3>Painel de Motoristas</h3>
 
 @if (motoristas == null)
 {

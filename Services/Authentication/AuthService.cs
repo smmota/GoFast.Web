@@ -17,7 +17,7 @@ namespace GoFast.UI.Services.Authentication
         private readonly AuthenticationStateProvider _authenticationStateProvider;
         private readonly ILocalStorageService _localStorage;
 
-        private string baseUrl = "https://localhost:7010/";
+        private readonly string baseUrl = "https://localhost:7010/";
 
         public AuthService(HttpClient httpClient, 
                            AuthenticationStateProvider authenticationStateProvider,
@@ -46,14 +46,19 @@ namespace GoFast.UI.Services.Authentication
 
             if (!response.IsSuccessStatusCode)
             {
-                return JsonSerializer.Deserialize<LoginResultDTO>(await
+                var loginErroResult = JsonSerializer.Deserialize<LoginResultDTO>(await
                 response.Content.ReadAsStringAsync(), new JsonSerializerOptions
                 { PropertyNameCaseInsensitive = true });
+
+                return loginErroResult;
             }
+
             await _localStorage.SetItemAsync("authToken", loginResult.Token);
             await _localStorage.SetItemAsync("tokenExpiration", loginResult.Expiration);
+
             ((ApiAuthenticationStateProvider)_authenticationStateProvider)
                 .MarkUserAsAuthenticated(loginDTO.Email);
+
             _httpClient.DefaultRequestHeaders.Authorization = new
                 AuthenticationHeaderValue("bearer", loginResult.Token);
 
