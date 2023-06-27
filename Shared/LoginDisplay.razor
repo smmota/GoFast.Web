@@ -1,0 +1,29 @@
+﻿@using GoFast.UI.Services.Authentication;
+@using Microsoft.AspNetCore.Components.Authorization
+@*@using Microsoft.AspNetCore.Components.WebAssembly.Authentication*@
+@inject NavigationManager Navigation
+
+@*<a href="login">Entrar</a>
+<a href="authentication/profile">Olá, ***** !</a>
+<button class="nav-link btn btn-link" @onclick="BeginLogOut">Sair</button>*@
+
+@inject IAuthService AuthService
+
+<AuthorizeView>
+    <Authorized>
+        Olá, @context.User.Identity?.Name!
+        <button class="nav-link btn btn-link" @onclick="BeginLogOut">Sair</button>
+        @*<a href="logout">Sair</a>*@
+    </Authorized>
+    <NotAuthorized>
+        <a href="register">Cadastre-se</a>
+        <a href="login">Entrar</a>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code{
+    private void BeginLogOut()
+    {
+        Navigation.NavigateTo("logout");
+    }
+}

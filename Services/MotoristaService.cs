@@ -17,7 +17,7 @@ namespace GoFast.UI.Services
 
         public async Task<List<MotoristaViewModel>> GetAll()
         {
-            var response = await _httpClient.GetAsync(uriBase + "Motorista/GetAll");
+            var response = await _httpClient.GetAsync("https://localhost:7010/api/Motorista/GetAll");
             response.EnsureSuccessStatusCode();
 
             var content = await response.Content.ReadAsStringAsync();
