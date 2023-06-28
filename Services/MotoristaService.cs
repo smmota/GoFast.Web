@@ -1,7 +1,9 @@
 ﻿using GoFast.UI.DTO;
 using GoFast.UI.DTO.ViewModel;
 using Newtonsoft.Json;
+using System.Net.Http.Headers;
 using System.Text;
+using GoFast.UI.Services.Authentication;
 
 namespace GoFast.UI.Services
 {
@@ -10,15 +12,22 @@ namespace GoFast.UI.Services
         //public readonly string uriBase = "https://localhost:7010/api/";
         private readonly string baseUrl = "https://localhost:7010/";
         private readonly HttpClient _httpClient;
+        private IAuthService _authService;
 
-        public MotoristaService(HttpClient httpClient)
+        public MotoristaService(HttpClient httpClient, IAuthService authService)
         {
             _httpClient = httpClient;
+            _authService = authService;
         }
 
         public async Task<List<MotoristaViewModel>> GetAll()
         {
-            var response = await _httpClient.GetAsync(baseUrl + "api/Motorista/GetAll");
+            var token = await _authService.GetTokenAsync();
+
+            //_httpClient.DefaultRequestHeaders.Authorization = new
+            //    AuthenticationHeaderValue("Bearer ", token);
+
+            var response = await _httpClient.GetAsync("api/Motorista/GetAll");
             response.EnsureSuccessStatusCode();
 
             var content = await response.Content.ReadAsStringAsync();
@@ -48,7 +57,7 @@ namespace GoFast.UI.Services
         public async Task<String> Create(MotoristaDTO motoristaDTO)
         {
             HttpContent body = new StringContent(JsonConvert.SerializeObject(motoristaDTO), Encoding.UTF8, "application/json");
-            var response = await _httpClient.PostAsync(baseUrl + "api/Motorista/GetById?idMotorista=", body);
+            var response = await _httpClient.PostAsync(baseUrl + "api/Motorista/Create", body);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 return response.Content.ReadAsStringAsync().Result.Substring(7,36);
             

@@ -10,9 +10,14 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddBlazoredLocalStorage();
 
-builder.Services.AddHttpClient("ApiGoFast", options =>
+//builder.Services.AddHttpClient("ApiGoFast", options =>
+//{
+//    options.BaseAddress = new Uri("https://localhost:7010/");
+//});
+
+builder.Services.AddScoped(options => new HttpClient
 {
-    options.BaseAddress = new Uri("https://localhost:7010/");
+    BaseAddress = new Uri("https://localhost:7010/")
 });
 
 //builder.Services.AddScoped<AuthenticationStateProvider>(provider =>
