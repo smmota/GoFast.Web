@@ -1,0 +1,18 @@
+﻿<div class="error-message btn alert-danger">
+
+    @if (ErrorsMessage.Count > 0)
+    {
+        @foreach (var error in ErrorsMessage)
+        {
+            <h3>@error</h3>
+        }
+    }
+</div>
+
+@code {
+
+    [Parameter]
+    public List<string> ErrorsMessage { get; set; }
+
+   
+}

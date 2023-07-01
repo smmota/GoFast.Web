@@ -10,30 +10,28 @@
 
 @if (ShowErrors)
 {
-    <div class="alert alert-danger" role="alert">
-        <p>@Error</p>
-    </div>
+    <DisplayMessage ErrorMessage="@Errors" />
 }
 
 <div class="card">
     <div class="card-body">
-        <h5 class="card-title">Please enter your details</h5>
+        <h5 class="card-title">Credenciais</h5>
         <EditForm Model="loginModel" OnValidSubmit="HandleLogin">
             <DataAnnotationsValidator />
             <ValidationSummary />
 
-            <div class="form-group">
+            <div class="form-group mt-2">
                 <label for="email">Email</label>
                 <InputText Id="email" Class="form-control" @bind-Value="loginModel.Email" />
                 <ValidationMessage For="@(() => loginModel.Email)" />
             </div>
-            <div class="form-group">
+            <div class="form-group mt-2">
                 <label for="password">Senha</label>
                 <InputText Id="password" type="password" Class="form-control"
                            @bind-Value="loginModel.Senha" />
                 <ValidationMessage For="@(() => loginModel.Senha)" />
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary mt-2">Enviar</button>
         </EditForm>
     </div>
 </div>
@@ -42,21 +40,29 @@
 
     private LoginDTO loginModel = new LoginDTO();
     private bool ShowErrors;
-    private string Error = "";
+    private List<string> Errors = new List<string>();
 
     private async Task HandleLogin()
     {
         ShowErrors = false;
 
-        var result = await AuthService.Login(loginModel);
+        try
+        {
+            var result = await AuthService.Login(loginModel);
 
-        if (result.Successful)
-        {
-            NavigationManager.NavigateTo("/");
+            if (result.Token is not null)
+            {
+                NavigationManager.NavigateTo("/");
+            }
+            else
+            {
+                Errors.Add(result.Error);
+                ShowErrors = true;
+            }
         }
-        else
+        catch (Exception ex)
         {
-            Error = result.Error;
+            Errors.Add("Não foi possível fazer o login : " + ex.Message);
             ShowErrors = true;
         }
     }

@@ -1,6 +1,8 @@
 ﻿@using GoFast.UI.Services.Authentication;
-@using Microsoft.AspNetCore.Components.Authorization
+@*@using Microsoft.AspNetCore.Components.Authorization*@
 @*@using Microsoft.AspNetCore.Components.WebAssembly.Authentication*@
+@using System.Security.Claims;
+
 @inject NavigationManager Navigation
 
 @*<a href="login">Entrar</a>
@@ -11,9 +13,10 @@
 
 <AuthorizeView>
     <Authorized>
-        Olá, @context.User.Identity?.Name!
-        <button class="nav-link btn btn-link" @onclick="BeginLogOut">Sair</button>
-        @*<a href="logout">Sair</a>*@
+       @* Olá, @context.User.Identity?.Name!*@
+        Olá, Samuel Matos!
+        @*<button class="nav-link btn btn-link" @onclick="BeginLogOut">Sair</button>*@
+        <a href="logout">Sair</a>
     </Authorized>
     <NotAuthorized>
         <a href="register">Cadastre-se</a>

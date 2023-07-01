@@ -36,20 +36,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXhfb2xkLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Public/Git/GoFast.Web/Pages/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Public/Git/GoFast.Web/Pages/Logout.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9nb3V0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Public/Git/GoFast.Web/Pages/Painel.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFpbmVsLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Public/Git/GoFast.Web/Shared/Login.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXExvZ2luLnJhem9y
+[C:/Users/Public/Git/GoFast.Web/Pages/Register.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Public/Git/GoFast.Web/Shared/DisplayMessage.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXERpc3BsYXlNZXNzYWdlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Public/Git/GoFast.Web/Shared/LoginDisplay.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXExvZ2luRGlzcGxheS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Public/Git/GoFast.Web/Shared/Logout.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXExvZ291dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Public/Git/GoFast.Web/Shared/NotAuthorized.razor]
@@ -58,10 +66,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Public/Git/GoFast.Web/Shared/RedirectToLogin.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFJlZGlyZWN0VG9Mb2dpbi5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Public/Git/GoFast.Web/Shared/Register.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFJlZ2lzdGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Public/Git/GoFast.Web/Shared/SurveyPrompt.razor]

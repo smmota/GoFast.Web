@@ -13,19 +13,18 @@ namespace GoFast.UI.Services.Authentication
 {
     public class AuthService : IAuthService
     {
-        private readonly HttpClient _httpClient;
+        //private readonly IHttpClientFactory _httpClientFactory;
         private readonly AuthenticationStateProvider _authenticationStateProvider;
         private readonly ILocalStorageService _localStorage;
+        private HttpClient _httpClient;
 
         private readonly string baseUrl = "https://localhost:7010/";
 
-        public AuthService(HttpClient httpClient, 
-                           AuthenticationStateProvider authenticationStateProvider,
-                           ILocalStorageService localStorage)
+        public AuthService(AuthenticationStateProvider authenticationStateProvider, ILocalStorageService localStorage, HttpClient httpClient)
         {
-            _httpClient = httpClient;
             _authenticationStateProvider = authenticationStateProvider;
             _localStorage = localStorage;
+            _httpClient = httpClient;
         }
 
         public async Task<LoginResultDTO> Login(LoginDTO loginDTO)
@@ -68,11 +67,12 @@ namespace GoFast.UI.Services.Authentication
                 Error = string.Empty,
                 Token = loginResult.Token
             };
-            //return loginResult;
         }
 
         public async Task Logout()
         {
+            //var _httpClient = _httpClientFactory.CreateClient("ApiGoFast");
+
             await _localStorage.RemoveItemAsync("authToken");
             ((ApiAuthenticationStateProvider)_authenticationStateProvider).MarkUserAsLoggedOut();
             _httpClient.DefaultRequestHeaders.Authorization = null;
@@ -80,6 +80,8 @@ namespace GoFast.UI.Services.Authentication
 
         public async Task<RegisterResultDTO> Register(RegisterDTO registerDTO)
         {
+            //var _httpClient = _httpClientFactory.CreateClient("ApiGoFast");
+
             var messageResult = await _httpClient.PostAsJsonAsync(baseUrl + "api/Usuario/Create", registerDTO);
             var result = await messageResult.Content.ReadFromJsonAsync<RegisterResultDTO>();
             return result;

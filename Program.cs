@@ -17,7 +17,7 @@ builder.Services.AddBlazoredLocalStorage();
 
 builder.Services.AddScoped(options => new HttpClient
 {
-    BaseAddress = new Uri("https://localhost:7010/")
+    //BaseAddress = new Uri("https://localhost:7010/")
 });
 
 //builder.Services.AddScoped<AuthenticationStateProvider>(provider =>

@@ -10,6 +10,8 @@
 
 @if (ShowErrors)
 {
+    <DisplayMessage ErrorMessage="@Errors" />
+
     <div class="alert alert-danger" role="alert">
         @foreach (var error in Errors)
         {
@@ -20,29 +22,29 @@
 
 <div class="card">
     <div class="card-body">
-        <h5 class="card-title">Please enter your details</h5>
+        <h5 class="card-title">Credenciais</h5>
         <EditForm Model="RegisterModel" OnValidSubmit="HandleRegistration">
             <DataAnnotationsValidator />
             <ValidationSummary />
 
-            <div class="form-group">
+            <div class="form-group mt-2">
                 <label for="email">Email address</label>
                 <InputText Id="email" class="form-control" @bind-Value="RegisterModel.Email" />
                 <ValidationMessage For="@(() => RegisterModel.Email)" />
             </div>
-            <div class="form-group">
+            <div class="form-group mt-2">
                 <label for="password">Password</label>
                 <InputText Id="password" type="password" class="form-control"
                            @bind-Value="RegisterModel.Password" />
                 <ValidationMessage For="@(() => RegisterModel.Password)" />
             </div>
-            <div class="form-group">
+            <div class="form-group mt-2">
                 <label for="password">Confirm Password</label>
                 <InputText Id="password" type="password" class="form-control"
                            @bind-Value="RegisterModel.ConfirmPassword" />
                 <ValidationMessage For="@(() => RegisterModel.ConfirmPassword)" />
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary mt-2">Cadastrar</button>
         </EditForm>
     </div>
 </div>
@@ -51,7 +53,7 @@
 
     private RegisterDTO RegisterModel = new RegisterDTO();
     private bool ShowErrors;
-    private IEnumerable<string> Errors;
+    private List<string> Errors = new List<string>();
 
     private async Task HandleRegistration()
     {
@@ -64,8 +66,8 @@
             NavigationManager.NavigateTo("/login");
         }
         else
-        {
-            Errors = result.Errors;
+        {            
+            Errors.AddRange(result.Errors);
             ShowErrors = true;
         }
     }

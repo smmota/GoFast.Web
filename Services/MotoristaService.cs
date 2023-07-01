@@ -9,12 +9,13 @@ namespace GoFast.UI.Services
 {
     public class MotoristaService : IMotoristaService
     {
-        //public readonly string uriBase = "https://localhost:7010/api/";
-        private readonly string baseUrl = "https://localhost:7010/";
-        private readonly HttpClient _httpClient;
+        //private readonly IHttpClientFactory _httpClientFactory;
         private IAuthService _authService;
+        private HttpClient _httpClient;
 
-        public MotoristaService(HttpClient httpClient, IAuthService authService)
+        private readonly string baseUrl = "https://localhost:7010/";
+
+        public MotoristaService(HttpClient httpClient,IAuthService authService)
         {
             _httpClient = httpClient;
             _authService = authService;
@@ -22,23 +23,38 @@ namespace GoFast.UI.Services
 
         public async Task<List<MotoristaViewModel>> GetAll()
         {
-            var token = await _authService.GetTokenAsync();
+            try
+            {
+                var token = await _authService.GetTokenAsync();
 
-            //_httpClient.DefaultRequestHeaders.Authorization = new
-            //    AuthenticationHeaderValue("Bearer ", token);
+                //_httpClient.DefaultRequestHeaders.Authorization = new
+                //    AuthenticationHeaderValue("bearer", token);
 
-            var response = await _httpClient.GetAsync("api/Motorista/GetAll");
-            response.EnsureSuccessStatusCode();
+                //var url = baseUrl + "api/Motorista/GetAll";
+                //var baseUri = new Uri(url);
 
-            var content = await response.Content.ReadAsStringAsync();
+                //_httpClient.BaseAddress = baseUri;
 
-            var data = JsonConvert.DeserializeObject<List<MotoristaViewModel>>(content).ToList();
+                var response = await _httpClient.GetAsync(baseUrl + "api/Motorista/GetAll");
+                response.EnsureSuccessStatusCode();
 
-            return data;
+                var content = await response.Content.ReadAsStringAsync();
+
+                var data = JsonConvert.DeserializeObject<List<MotoristaViewModel>>(content).ToList();
+
+                return data;
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         public async Task<MotoristaViewModel> GetById(string id)
         {
+            var token = await _authService.GetTokenAsync();
+
             var response = await _httpClient.GetAsync(baseUrl + "api/Motorista/GetById?idMotorista=" + id.ToString());
             response.EnsureSuccessStatusCode();
 
@@ -66,14 +82,14 @@ namespace GoFast.UI.Services
 
         public async Task DeleteById(Guid id)
         {
-            var response = await _httpClient.DeleteAsync(baseUrl + "Motorista/Delete?idMotorista=" + id.ToString());
+            var response = await _httpClient.DeleteAsync("api/Motorista/Delete?idMotorista=" + id.ToString());
             response.EnsureSuccessStatusCode();
         }
 
         public async Task Update(MotoristaViewModel motoristaDTO)
         {
             HttpContent body = new StringContent(JsonConvert.SerializeObject(motoristaDTO), Encoding.UTF8, "application/json");
-            var response = await _httpClient.PutAsync(baseUrl + "Motorista/Update", body);
+            var response = await _httpClient.PutAsync(baseUrl + "api/Motorista/Update", body);
             response.EnsureSuccessStatusCode();
         }
     }
