@@ -5,12 +5,14 @@
 @using GoFast.UI.Services;
 @using System.Globalization;
 
+@inject IAuthService AuthService
 @inject IMotoristaService MotoristaService;
+@inject IJSRuntime JSRuntime;
 @inject NavigationManager NavigationManager
 
-<PageTitle>Motoristas</PageTitle>
+@*<PageTitle>Motoristas</PageTitle>*@
 
-<h3>painel</h3>
+<h3>Lista de Motoristas</h3>
 
 @if (motoristas == null)
 {
@@ -31,7 +33,7 @@ else
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div class="mb-3">
-                        <h5 class="card-title">Contact List <span class="text-muted fw-normal ms-2">@motoristas.Count</span></h5>
+                        <h5 class="card-title">Motoristas cadastrados: <span class="text-muted fw-normal ms-2">@motoristas.Count</span></h5>
                     </div>
                 </div>
             </div>
@@ -68,8 +70,6 @@ else
                     </div>
                 </div>
             }
-
-
         </div>
     </div>
 }
@@ -83,10 +83,25 @@ else
     protected override async Task OnInitializedAsync()
     {
         if (IdMotorista == string.Empty || IdMotorista == null)
-            motoristas = await MotoristaService.GetAll();
-        else
-            motoristas.Add(await MotoristaService.GetById(IdMotorista));
+        {
+            try
+            {
+                motoristas = await MotoristaService.GetAll();
 
+                if (motoristas == null)
+                {
+                    NavigationManager.NavigateTo("/notauthorized");
+                }
+            }
+            catch (Exception)
+            {
+                NavigationManager.NavigateTo("/notauthorized");
+            }
+        }
+        else
+        {
+            motoristas.Add(await MotoristaService.GetById(IdMotorista));
+        }
     }
 
     public async void Editar(Guid id)
@@ -96,6 +111,20 @@ else
 
     public async void Excluir(Guid id)
     {
-        await MotoristaService.DeleteById(id);
+        try
+        {
+            await MotoristaService.DeleteById(id);
+
+            await JSRuntime.InvokeVoidAsync("alert", "Motorista excluído com sucesso!");
+
+            if (IdMotorista == string.Empty || IdMotorista == null)
+                NavigationManager.NavigateTo("Painel");
+            else
+                NavigationManager.NavigateTo("Painel/" + IdMotorista);
+        }
+        catch (Exception ex)
+        {
+            await JSRuntime.InvokeVoidAsync("alert", "Falha ao excluir motorista");
+        }
     }
 }

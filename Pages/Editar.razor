@@ -3,13 +3,14 @@
 @using GoFast.UI.DTO;
 @using GoFast.UI.DTO.ViewModel;
 @using GoFast.UI.Services;
-@using BlazorInputFile
+@*@using BlazorInputFile*@
 
 @inject IMotoristaService serviceMotorista
 @inject IBlobService serviceBlob
 @inject IJSRuntime JSRuntime
 @inject IFileConverter fileUpload
 @inject IWebHostEnvironment Env
+@inject IAuthService authService
 @inject NavigationManager NavigationManager
 
 <h3>Editar</h3>
@@ -21,11 +22,11 @@
                 <div class="card-header">Documento</div>
                 <div class="card-body text-center">
                     <!-- Profile picture image-->
-                    <img class="img-account-profile mb-5" src="@motoristaDTOInput.Carro.DocumentoCarro.BlobStorage.Link" alt="">
+                    <img class="img-thumbnail mb-5" src="@motoristaDTOInput.Carro.DocumentoCarro.BlobStorage.Link" alt="">
                     <!-- Profile picture help block-->
                     <div class="small font-italic text-muted mb-4">JPG ou PNG não pode ultrapassar 5 MB</div>
                     <!-- Profile picture upload button-->
-                    <BlazorInputFile.InputFile OnChange="HandleFileSelected" class="btn btn-primary" accept="image/png, image/jpg" />
+                    <InputFile OnChange="HandleFileSelected" class="btn btn-primary" accept="image/png, image/jpg" />
                 </div>
             </div>
         </div>
@@ -163,7 +164,7 @@
 </div>
 
 @code {
-    IFileListEntry arquivo;
+    //IFileListEntry arquivo;
 
     public string arquivoBase64;
 
@@ -174,27 +175,39 @@
 
     async void EditarMotorista()
     {
-        if (arquivoBase64 == string.Empty || arquivoBase64 == null)
-        {
+        //if (arquivoBase64 == string.Empty || arquivoBase64 == null)
+        //{
+        //    await JSRuntime.InvokeVoidAsync("alert", "Necessario realizar o Upload do documento!");
+        //}
+        //else
+        //{
+        //    await serviceMotorista.Update(motoristaDTOInput);
+        //    await JSRuntime.InvokeVoidAsync("alert", "Motorista editado com sucesso!");
+        //    NavigationManager.NavigateTo("Painel/" + IdMotorista);
 
-        }
-        else
-        {
-            await serviceMotorista.Update(new MotoristaViewModel());
+        //}
 
-            NavigationManager.NavigateTo("Painel/" + IdMotorista);
-
-        }
+        await serviceMotorista.Update(motoristaDTOInput);
+        await JSRuntime.InvokeVoidAsync("alert", "Motorista editado com sucesso!");
+        NavigationManager.NavigateTo("Painel/" + IdMotorista);
     }
 
-    async Task HandleFileSelected(IFileListEntry[] files)
+    async Task HandleFileSelected(InputFileChangeEventArgs e)
     {
         try
         {
-            arquivo = files.FirstOrDefault();
-            if (arquivo != null)
+            IBrowserFile selectedFiles = e.GetMultipleFiles().FirstOrDefault();
+
+            if (selectedFiles != null)
             {
-                arquivoBase64 = await fileUpload.UploadAsync(arquivo);
+                Stream stream = selectedFiles.OpenReadStream();
+                MemoryStream ms = new MemoryStream();
+                await stream.CopyToAsync(ms);
+                stream.Close();
+
+                var bytes = ms.ToArray();
+                arquivoBase64 = Convert.ToBase64String(bytes);
+                ms.Close();
             }
         }
         catch (Exception ex)
@@ -204,7 +217,21 @@
 
     protected override async Task OnInitializedAsync()
     {
-        if (IdMotorista != string.Empty && IdMotorista != null)
-            motoristaDTOInput = await serviceMotorista.GetById(IdMotorista);
+        try
+        {
+            var token = await authService.GetTokenAsync();
+
+            if (string.IsNullOrEmpty(token))
+            {
+                NavigationManager.NavigateTo("/notauthorized");
+            }
+
+            if (IdMotorista != string.Empty && IdMotorista != null)
+                motoristaDTOInput = await serviceMotorista.GetById(IdMotorista);
+        }
+        catch (Exception)
+        {
+            NavigationManager.NavigateTo("/notauthorized");
+        }
     }
 }

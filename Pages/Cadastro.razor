@@ -2,13 +2,14 @@
 
 @using GoFast.UI.DTO;
 @using GoFast.UI.Services;
-@using BlazorInputFile
+@*@using BlazorInputFile*@
 
 @inject IMotoristaService serviceMotorista
 @inject IBlobService serviceBlob
 @inject IJSRuntime JSRuntime
 @inject IFileConverter fileUpload
 @inject IWebHostEnvironment Env
+@inject IAuthService authService
 @inject NavigationManager NavigationManager
 
 <h3>Cadastro</h3>
@@ -24,7 +25,7 @@
                     <!-- Profile picture help block-->
                     <div class="small font-italic text-muted mb-4">JPG ou PNG não pode ultrapassar 5 MB</div>
                     <!-- Profile picture upload button-->
-                    <BlazorInputFile.InputFile OnChange="HandleFileSelected" class="btn btn-primary" accept="image/png, image/jpg" />
+                    <InputFile OnChange="HandleFileSelected" class="btn btn-primary" accept="image/png, image/jpg" />
                 </div>
             </div>
         </div>
@@ -162,7 +163,7 @@
 </div>
 
 @code {
-    IFileListEntry arquivo;
+    //IFileListEntry arquivo;
 
     public string arquivoBase64;
 
@@ -172,26 +173,35 @@
     {
         if (arquivoBase64 == string.Empty || arquivoBase64 == null)
         {
-
+            await JSRuntime.InvokeVoidAsync("alert", "Necessario realizar o Upload do documento!");
         }
         else
         {
-
             motoristaDTOInput.Blob.imagemBase64 = arquivoBase64;
             var idMotorista = await serviceMotorista.Create(motoristaDTOInput);
+
+            await JSRuntime.InvokeVoidAsync("alert", "Motorista criado com sucesso!");
 
             NavigationManager.NavigateTo("Painel/" + idMotorista);
         }
     }
 
-    async Task HandleFileSelected(IFileListEntry[] files)
+    async Task HandleFileSelected(InputFileChangeEventArgs e)
     {
         try
         {
-            arquivo = files.FirstOrDefault();
-            if (arquivo != null)
+            IBrowserFile selectedFiles = e.GetMultipleFiles().FirstOrDefault();
+
+            if (selectedFiles != null)
             {
-                arquivoBase64 = await fileUpload.UploadAsync(arquivo);
+                Stream stream = selectedFiles.OpenReadStream();
+                MemoryStream ms = new MemoryStream();
+                await stream.CopyToAsync(ms);
+                stream.Close();
+
+                var bytes = ms.ToArray();
+                arquivoBase64 = Convert.ToBase64String(bytes);
+                ms.Close();
             }
         }
         catch (Exception ex)
@@ -201,6 +211,18 @@
 
     protected override async Task OnInitializedAsync()
     {
+        try
+        {
+            var token = await authService.GetTokenAsync();
 
+            if (string.IsNullOrEmpty(token))
+            {
+                NavigationManager.NavigateTo("/notauthorized");
+            }
+        }
+        catch (Exception)
+        {
+            NavigationManager.NavigateTo("/notauthorized");
+        }
     }
 }

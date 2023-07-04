@@ -9,53 +9,73 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = GoFast.UI
 build_property.RootNamespace = GoFast.UI
-build_property.ProjectDir = C:\Users\marqu\source\repos\teste\GoFast.Web\
+build_property.ProjectDir = C:\Users\Public\Git\GoFast.Web\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\marqu\source\repos\teste\GoFast.Web
+build_property.MSBuildProjectDirectory = C:\Users\Public\Git\GoFast.Web
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/marqu/source/repos/teste/GoFast.Web/App.razor]
+[C:/Users/Public/Git/GoFast.Web/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marqu/source/repos/teste/GoFast.Web/Pages/Cadastro.razor]
+[C:/Users/Public/Git/GoFast.Web/Pages/Cadastro.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FkYXN0cm8ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marqu/source/repos/teste/GoFast.Web/Pages/Editar.razor]
+[C:/Users/Public/Git/GoFast.Web/Pages/Editar.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdGFyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marqu/source/repos/teste/GoFast.Web/Pages/Index.razor]
+[C:/Users/Public/Git/GoFast.Web/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marqu/source/repos/teste/GoFast.Web/Pages/Painel.razor]
+[C:/Users/Public/Git/GoFast.Web/Pages/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Public/Git/GoFast.Web/Pages/Logout.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9nb3V0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Public/Git/GoFast.Web/Pages/Painel.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFpbmVsLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marqu/source/repos/teste/GoFast.Web/Shared/SurveyPrompt.razor]
+[C:/Users/Public/Git/GoFast.Web/Pages/Register.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Public/Git/GoFast.Web/Shared/DisplayMessage.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXERpc3BsYXlNZXNzYWdlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Public/Git/GoFast.Web/Shared/NotAuthorized.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5vdEF1dGhvcml6ZWQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Public/Git/GoFast.Web/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marqu/source/repos/teste/GoFast.Web/_Imports.razor]
+[C:/Users/Public/Git/GoFast.Web/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marqu/source/repos/teste/GoFast.Web/Shared/MainLayout.razor]
+[C:/Users/Public/Git/GoFast.Web/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-qf68d648u1
 
-[C:/Users/marqu/source/repos/teste/GoFast.Web/Shared/NavMenu.razor]
+[C:/Users/Public/Git/GoFast.Web/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-lito9xnwnv
 
-[C:/Users/marqu/source/repos/teste/GoFast.Web/Pages/Error.cshtml]
+[C:/Users/Public/Git/GoFast.Web/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marqu/source/repos/teste/GoFast.Web/Pages/_Host.cshtml]
+[C:/Users/Public/Git/GoFast.Web/Pages/_Host.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

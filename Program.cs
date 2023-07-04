@@ -1,3 +1,4 @@
+using Blazored.LocalStorage;
 using GoFast.UI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -5,10 +6,17 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
+builder.Services.AddBlazoredLocalStorage();
+
+builder.Services.AddScoped(options => new HttpClient
+{
+    //BaseAddress = new Uri("https://localhost:7010/")
+});
 
 builder.Services.AddHttpClient<IMotoristaService, MotoristaService>();
 builder.Services.AddHttpClient<IBlobService, BlobService>();
 builder.Services.AddScoped<IFileConverter, FileConverter>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 var app = builder.Build();
 

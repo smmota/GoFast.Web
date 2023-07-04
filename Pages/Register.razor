@@ -1,0 +1,76 @@
+﻿@page "/Register"
+
+@using GoFast.UI.DTO;
+@using GoFast.UI.Services;
+
+@inject IAuthService AuthService
+@inject NavigationManager NavigationManager
+
+<h1>Cadastre-se</h1>
+
+@if (ShowErrors)
+{
+    <div class="error-message btn alert-danger">
+
+        @if (@Errors.Count > 0)
+        {
+            @foreach (var error in Errors)
+            {
+                <h3>@error</h3>
+            }
+        }
+    </div>
+}
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Credenciais</h5>
+        <EditForm Model="RegisterModel" OnValidSubmit="HandleRegistration">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <div class="form-group mt-2">
+                <label for="nome">Nome</label>
+                <InputText Id="nome" class="form-control" @bind-Value="RegisterModel.Nome" />
+                <ValidationMessage For="@(() => RegisterModel.Nome)" />
+            </div>
+            <div class="form-group mt-2">
+                <label for="email">Email address</label>
+                <InputText Id="email" class="form-control" @bind-Value="RegisterModel.LoginUser" />
+                <ValidationMessage For="@(() => RegisterModel.LoginUser)" />
+            </div>
+            <div class="form-group mt-2">
+                <label for="password">Password</label>
+                <InputText Id="password" type="password" class="form-control"
+                           @bind-Value="RegisterModel.Senha" />
+                <ValidationMessage For="@(() => RegisterModel.Senha)" />
+            </div>
+            <button type="submit" class="btn btn-primary mt-2">Cadastrar</button>
+        </EditForm>
+    </div>
+</div>
+
+@code {
+
+    private RegisterDTO RegisterModel = new RegisterDTO();
+    private bool ShowErrors;
+    private List<string> Errors = new List<string>();
+
+    private async Task HandleRegistration()
+    {
+        ShowErrors = false;
+
+        try
+        {
+            var result = await AuthService.Register(RegisterModel);
+
+            Errors.Add(result.Message);
+            ShowErrors = true;
+        }
+        catch (Exception ex)
+        {
+            Errors.Add("Não foi possível fazer o login : " + ex.Message);
+            ShowErrors = true;
+        }
+    }
+}
